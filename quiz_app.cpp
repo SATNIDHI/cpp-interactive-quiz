@@ -43,7 +43,6 @@ public:
     }
     
     void initializeQuestions() {
-        // Science Questions
         questions.push_back({
             "What is the chemical symbol for gold?",
             {"A) Go", "B) Gd", "C) Au", "D) Ag"},
@@ -74,7 +73,6 @@ public:
             2, "Science"
         });
         
-        // History Questions
         questions.push_back({
             "In which year did World War II end?",
             {"A) 1944", "B) 1945", "C) 1946", "D) 1947"},
@@ -105,7 +103,6 @@ public:
             2, "History"
         });
         
-        // Geography Questions
         questions.push_back({
             "What is the capital of Australia?",
             {"A) Sydney", "B) Melbourne", "C) Canberra", "D) Perth"},
@@ -136,7 +133,6 @@ public:
             2, "Geography"
         });
         
-        // Sports Questions
         questions.push_back({
             "How many players are on a basketball team on the court at one time?",
             {"A) 4", "B) 5", "C) 6", "D) 7"},
@@ -290,7 +286,6 @@ public:
         
         shuffleQuestions(quizQuestions);
         
-        // Limit to 5 questions for the quiz
         int numQuestions = min(5, (int)quizQuestions.size());
         quizQuestions.resize(numQuestions);
         
@@ -341,7 +336,7 @@ public:
         auto quizEnd = high_resolution_clock::now();
         int totalTime = duration_cast<seconds>(quizEnd - quizStart).count();
         
-        // Display results
+        
         cout << "\n" << string(60, '=') << "\n";
         cout << "                    QUIZ COMPLETED!" << "\n";
         cout << string(60, '=') << "\n";
@@ -351,8 +346,7 @@ public:
              << (score * 100 / numQuestions) << "%)\n";
         cout << "Time taken: " << totalTime << " seconds\n";
         cout << string(60, '=') << "\n";
-        
-        // Add to leaderboard
+    
         leaderboard.emplace_back(playerName, score, category, totalTime, getCurrentDate());
         saveLeaderboard();
         
@@ -369,7 +363,7 @@ public:
         cout << "                              LEADERBOARD" << "\n";
         cout << string(80, '=') << "\n";
         
-        // Sort by score (descending), then by time (ascending)
+        
         vector<Player> sortedBoard = leaderboard;
         sort(sortedBoard.begin(), sortedBoard.end(), 
              [](const Player& a, const Player& b) {
@@ -393,7 +387,7 @@ public:
         }
         cout << string(80, '=') << "\n";
         
-        // Category-wise best scores
+        
         cout << "\nCATEGORY CHAMPIONS:\n";
         cout << string(40, '-') << "\n";
         
